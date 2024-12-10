@@ -14,7 +14,7 @@ export default function SecondSection() {
                 <hr className="h-[3px] my-8 bg-gray-200 border-0 dark:bg-gray-700 w-[250px] ml-[610px]"/>
                 <ul className="mt-20 flex flex-row gap-10 ml-[300px]">
                     {items.map((item, index) => (
-                        <li ley={index}>
+                        <li key={index}>
                             <ItemComponent name={item.name} price={item.price} img={item.img} />
                         </li>
                     ))}

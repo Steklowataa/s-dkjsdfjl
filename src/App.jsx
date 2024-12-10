@@ -8,6 +8,7 @@ import ShopCategory from './pages/ShopCategory'
 import Main from './components/Main/Main'
 import SecondSection from './components/SecondSection'
 
+//TODO: Remove unused imports and components throughout whole application. Isn't it to senseless to add some unused lines of code?
 
 function App() {
   const items = [
