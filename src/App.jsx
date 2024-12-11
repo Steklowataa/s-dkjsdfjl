@@ -1,38 +1,32 @@
-import { useState } from 'react'
-import ItemComponent from './components/ItemComponent'
-import './App.css'
 import { Navbar } from './components/Navbar'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import Shop from './pages/Shop'
 import ShopCategory from './pages/ShopCategory'
-import Main from './components/Main/Main'
-import SecondSection from './components/SecondSection'
+import {Animation} from "../src/components/Animation";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 
-
-function App() {
-  const items = [
-    {name: "Buty unisex New Balance U991VS2, szare", price: "1099,02", img: "./public/vite.svg"},
-    {name: "Buty damskie New Balance Fresh Foam 1080 v14 W1080M14 zielone", price: "482,99", img: "./public/vite.svg"},
-    {name: "Buty unisex New Balance M1000EB, szare", price: "689,99", img: "./public/vite.svg"}
-  ]
+  
+export default function App() {
 
   return (
     <>
     <BrowserRouter>
     <Navbar />
-    {/* <Shop /> */}
-    <Main />
-     <SecondSection />
     <Routes>
       <Route path='/' element={<Shop />}/>
       <Route path='/men' element={<ShopCategory category="men"/>}/>
       <Route path='/women' element={<ShopCategory  category="women"/>}/>
       <Route path='/kids' element={<ShopCategory  category="kids"/>}/>
     </Routes>
+    <div className="App">
+                <Canvas camera={{ fov: 64, position: [-2, 2, 0] }}>
+                    <ambientLight intensity={5} />
+                    <OrbitControls enableZoom={true} />
+                    <Animation />
+                </Canvas>
+                </div>
     </BrowserRouter>
-    
     </> 
   )
 }
-
-export default App
