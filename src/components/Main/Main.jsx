@@ -1,6 +1,5 @@
 export default function Main() {
 
-    //TODO: You can certainly use less stying here, keeping overall looks the same
     return (
         <>
             <div className="relative">

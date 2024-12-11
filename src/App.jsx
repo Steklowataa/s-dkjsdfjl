@@ -6,9 +6,6 @@ import {Animation} from "../src/components/Animation";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 
-
-//TODO: Remove unused imports and components throughout whole application. Isn't it to senseless to add some unused lines of code?
-
   
 export default function App() {
 

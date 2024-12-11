@@ -1,9 +1,5 @@
 import ItemComponent from "./ItemComponent"
-import { useLayoutEffect, useRef } from "react";
-import { useGLTF, useAnimations } from "@react-three/drei";
-import { Animation } from "./Animation";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+
 
 export default function SecondSection() {
     const items = [
