@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        futura: ['Futura', 'sans-serif'],
+        futuraMedium: ['FuturaMedium', 'sans-serif'], // Nazwa fontu z @font-face
+      },
+    },
   },
   plugins: [],
-}
+};

@@ -1,35 +1,58 @@
-import { Navbar } from './components/Navbar'
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import Shop from './pages/Shop'
-import ShopCategory from './pages/ShopCategory'
-import {Animation} from "../src/components/Animation";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import Home from "./components/Home";
+import Form from "./components/Form";
+import Chat from "./components/Chat";
+import FormForDoctor from "./components/FormForDoctor";
+import FormUser from "./components/FormUser";
+import Success from "./components/Success";
+import ChatBot from "./components/ChatBot";
 
+function App() {
+  const location = useLocation();
 
-//TODO: Remove unused imports and components throughout whole application. Isn't it to senseless to add some unused lines of code?
+  const getBackgroundColor = () => {
+    switch (location.pathname) {
+      case '/':
+        return 'rgb(59,58,59)';
+      case '/form':
+        return 'rgb(59,58,59)';  
+      case '/chat':
+        return 'rgb(100,100,100)'; 
+      case '/formForDoctor':
+        return 'rgb(29,29,29)'; 
+      case '/formForUser':
+          return 'rgb(29,29,29)'; 
+      default:
+        return 'white'; 
+    }
+  };
 
-  
-export default function App() {
+  useEffect(() => {
+    document.body.style.backgroundColor = getBackgroundColor();
+  }, [location]);
 
   return (
-    <>
-    <BrowserRouter>
-    <Navbar />
-    <Routes>
-      <Route path='/' element={<Shop />}/>
-      <Route path='/men' element={<ShopCategory category="men"/>}/>
-      <Route path='/women' element={<ShopCategory  category="women"/>}/>
-      <Route path='/kids' element={<ShopCategory  category="kids"/>}/>
-    </Routes>
-    <div className="App">
-                <Canvas camera={{ fov: 64, position: [-2, 2, 0] }}>
-                    <ambientLight intensity={5} />
-                    <OrbitControls enableZoom={true} />
-                    <Animation />
-                </Canvas>
-                </div>
-    </BrowserRouter>
-    </> 
-  )
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/form" element={<Form />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/formForDoctor" element={<FormForDoctor />} />
+        <Route path="/formForUser" element={<FormUser />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/chatbot" element={<ChatBot />} />
+      </Routes>
+    </div>
+  );
 }
+
+function AppWrapper() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  );
+}
+
+export default AppWrapper;
